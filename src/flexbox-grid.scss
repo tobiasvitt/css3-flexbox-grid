@@ -1,0 +1,199 @@
+/** A lightweight grid system based on CSS3 Flexbox
+    https://github.com/tobiasvitt/css3-flexbox-grid
+
+    @version 1.0.0
+    @author Tobias Vitt
+    @license MIT
+    @url https://github.com/tobiasvitt/css3-flexbox-grid/LICENSE
+
+
+
+  constants:
+
+    - $browser-context          -> Defines the default pixel size
+    - $row-max-width            -> Defines the number of units a grid row can contain
+    - $col-{a}-breakpoint       -> Defines the breakpoint for a specific media query
+
+
+
+
+  media queries:
+
+    - col-{b}                   -> grid columns independent from media query
+    - col-xs-{b}                -> "extra small"    0px - $col-xs-breakpoint
+    - col-sm-{b}                -> "small"          $col-xs-breakpoint - $col-sm-breakpoint
+    - col-md-{b}                -> "medium"         $col-sm-breakpoint - $col-md-breakpoint
+    - col-lg-{b}                -> "large"          $col-md-breakpoint - unlimited
+
+
+
+
+  row options:
+
+    - row-{a}                       -> Multiple lines, items will automatically move
+                                   to new line when $row-max-width is exceeded
+
+    - row-{a}-no-wrap               -> Single line, items can overlape on x axis and
+                                   don't move to next line when $row-max-width is exceeded
+
+    - row-{a}-items-flow-x-{b}      -> Defines the item alignment along the x axis (main axis)
+
+    - row-{a}-items-flow-y-{b}      -> Defines the item alignment along the y axis (cross axis)
+
+    - row-{a}-column-lines-y-{b}    -> Aligns item lines (sub rows, only when row has not the "no wrap" class) within,
+                                   when there is extra space on the y axis (cross-axis)
+
+
+
+
+  col options:
+
+    - col-{a}-auto               -> item will take all free space on x axis
+    - col-{a}-hidden             -> display: none for certain media queries
+    - col-{a}-self-flow-y-{b}    -> defines itself's alignment along the y axis (cross axis)
+
+
+
+
+    {a} -> any media query suffix, {b} -> flow (type) suffix
+
+**/
+
+@function calc-em($px, $context) {
+  @return ($px / $context) * 1em;
+}
+
+/* constants */
+$browser-context: 16;
+$row-max-width: 12;
+$col-xs-breakpoint: calc-em(500, $browser-context);
+$col-sm-breakpoint: calc-em(750, $browser-context);
+$col-md-breakpoint: calc-em(1000, $browser-context);
+
+
+@mixin col-gen($suffix) {
+
+  .row#{$suffix} {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .row#{$suffix}-no-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .row#{$suffix}-items-flow-x-start {
+    justify-content: flex-start;
+  }
+
+  .row#{$suffix}-items-flow-x-end {
+    justify-content: flex-end;
+  }
+
+  .row#{$suffix}-items-flow-x-center {
+    justify-content: center;
+  }
+
+  .row#{$suffix}-items-flow-x-space-between {
+    justify-content: space-between;
+  }
+
+  .row#{$suffix}-items-flow-x-space-around {
+    justify-content: space-around;
+  }
+
+  .row#{$suffix}-items-flow-y-start {
+    align-items: flex-start;
+  }
+
+  .row#{$suffix}-items-flow-y-end {
+    align-items: flex-end;
+  }
+
+  .row#{$suffix}-items-flow-y-center {
+    align-items: center;
+  }
+
+  .row#{$suffix}-items-flow-y-stretch {
+    align-items: stretch;
+  }
+
+  .row#{$suffix}-column-lines-y-start {
+    align-content: flex-start;
+  }
+
+  .row#{$suffix}-column-lines-y-end {
+    align-content: flex-end;
+  }
+
+  .row#{$suffix}-column-lines-y-center {
+    align-content: center;
+  }
+
+  .row#{$suffix}-column-lines-y-stretch {
+    align-content: stretch;
+  }
+
+  .row#{$suffix}-column-lines-y-space-between {
+    align-content: space-between;
+  }
+
+  .row#{$suffix}-column-lines-y-space-around {
+    align-content: space-around;
+  }
+
+  @for $i from 1 through $row-max-width {
+    .col#{$suffix}-#{$i} {
+      flex: 0 0 100% / ($row-max-width / $i);
+    }
+  }
+
+  .col#{$suffix}-auto {
+    flex: 1;
+  }
+
+  .col#{$suffix}-hidden {
+    display: none;
+  }
+
+  .col#{$suffix}-self-flow-y-start {
+    align-self: flex-start;
+  }
+
+  .col#{$suffix}-self-flow-y-end {
+    align-self: flex-end;
+  }
+
+  .col#{$suffix}-self-flow-y-center {
+    align-self: center;
+  }
+
+  .col#{$suffix}-self-flow-y-stretch {
+    align-self: stretch;
+  }
+
+}
+
+// col-{x}
+@include col-gen('');
+
+// col-xs-{x}
+@media (max-width: $col-xs-breakpoint) {
+  @include col-gen('-xs');
+}
+
+// col-sm-{x}
+@media (min-width: $col-xs-breakpoint) and (max-width: $col-sm-breakpoint) {
+  @include col-gen('-sm');
+}
+
+// col-md-{x}
+@media (min-width: $col-sm-breakpoint) and (max-width: $col-md-breakpoint) {
+  @include col-gen('-md');
+}
+
+// col-lg-{x}
+@media (min-width: $col-md-breakpoint) {
+  @include col-gen('-lg');
+}
