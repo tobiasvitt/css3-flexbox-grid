@@ -3,7 +3,7 @@ A lightweight grid system based on CSS3 Flexbox
 
 Flexbox is a new layout mode in CSS3, it consists of flex containers and flex items.
 
-The grid system uses similar syntax than bootstrap to make it easy th switch.
+The grid system uses similar syntax than bootstrap to make it easy to switch.
 
 
   **Versions:**
