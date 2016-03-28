@@ -1,69 +1,169 @@
 # css3-flexbox-grid
-A lightweight grid system based on CSS3 Flexbox
+- A lightweight grid system based on CSS3 Flexbox
 
-Flexbox is a new layout mode in CSS3, it consists of flex containers and flex items.
+- Flexbox is a new layout mode in CSS3, it consists of flex containers and flex items.
 
-The grid system uses similar syntax than bootstrap to make it easy to switch.
+- The grid system uses similar syntax than bootstrap to make it easy to switch.
 
 
   **Versions:**
-    
+
     - flexbox-grid.css -> 12 Units per row, Media Queries 500, 750, 1000
     - flexbox-grid.min.css -> same as flexbox-grid.css but compressed
-    - flexbox-grid-24units.css -> 24 Units per row, Media Queries 500, 750, 1000    
-    - flexbox-grid-24units.min.css -> same as flexbox-grid-24units.css but compressed    
+    - flexbox-grid-24units.css -> 24 Units per row, Media Queries 500, 750, 1000
+    - flexbox-grid-24units.min.css -> same as flexbox-grid-24units.css but compressed
 
 
-  **Example:**
+##Example:
 
-    ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/example/img/flex-items-width.png "Flex Items Width")
-    ```
-                <div class="col-12 row">
-                    <div class="col-1">Size 1 / col-1</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-2">Size 2 / col-2</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-3">Size 3 / col-3</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-4">Size 4 / col-4</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-5">Size 5 / col-5</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-6">Size 6 / col-6</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-7">Size 7 / col-7</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-8">Size 8 / col-8</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-9">Size 9 / col-9</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-10">Size 10 / col-10</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-11">Size 11 / col-11</div>
-                </div>
-                <div class="col-12 row">
-                    <div class="col-12">Size 12 / col-12</div>
-                </div>
 
-    ```
-    ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/example/img/flex-items-x-flow.png "Flex Items Flow X-Axis")
+  ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/blob/master/example/img/flex-items-width.png "Flex Items Width")
 
-    ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/example/img/flex-items-y-flow.png "Flex Items Flow Y-Axis")
+  ```html
+  <div class="row">
+    <div class="col-12 row">
+        <div class="col-1">Size 1 / col-1</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-2">Size 2 / col-2</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-3">Size 3 / col-3</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-4">Size 4 / col-4</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-5">Size 5 / col-5</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-6">Size 6 / col-6</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-7">Size 7 / col-7</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-8">Size 8 / col-8</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-9">Size 9 / col-9</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-10">Size 10 / col-10</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-11">Size 11 / col-11</div>
+    </div>
+    <div class="col-12 row">
+        <div class="col-12">Size 12 / col-12</div>
+    </div>
+  </div>
+  ```
 
-    ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/example/img/flex-items-column-lines-positions.png "Flex Items Column lines position")
 
-    ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/example/img/flex-items-self-alignment.png "Flex Items Self Alignment")
+  ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/blob/master/example/img/flex-items-x-flow.png "Flex Items Flow X-Axis")
 
+  ```html
+  <div class="row">
+    <div class="col-12 row row-items-flow-x-start">
+        <div class="col-4">Item 1 / row-items-flow-x-start</div>
+        <div class="col-4">Item 2 / row-items-flow-x-start</div>
+    </div>
+    <div class="col-12 row row-items-flow-x-end">
+        <div class="col-4">Item 1 / row-items-flow-x-end</div>
+        <div class="col-4">Item 2 / row-items-flow-x-end</div>
+    </div>
+    <div class="col-12 row row-items-flow-x-center">
+        <div class="col-4">Item 1 / row-items-flow-x-center</div>
+        <div class="col-4">Item 2 / row-items-flow-x-center</div>
+    </div>
+    <div class="col-12 row row-items-flow-x-space-between">
+        <div class="col-4">Item 1 / row-items-flow-x-space-between</div>
+        <div class="col-4">Item 2 / row-items-flow-x-space-between</div>
+    </div>
+    <div class="col-12 row row-items-flow-x-space-around9">
+        <div class="col-4">Item 1 / row-items-flow-x-space-around</div>
+        <div class="col-4">Item 2 / row-items-flow-x-space-around</div>
+    </div>
+  </div>
+  ```
+
+
+  ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/blob/master/example/img/flex-items-y-flow.png "Flex Items Flow Y-Axis")
+
+  ```html
+  <div class="row">
+    <div class="col-12 row row-items-flow-y-start">
+        <div class="col-4">Item 1 / row-items-flow-y-start</div>
+        <div class="col-4">Item 2 / row-items-flow-y-start</div>
+    </div>
+    <div class="col-12 row row-items-flow-y-end">
+        <div class="col-4">Item 1 / row-items-flow-y-end</div>
+        <div class="col-4">Item 2 / row-items-flow-y-end</div>
+    </div>
+    <div class="col-12 row row-items-flow-y-center">
+       <div class="col-4">Item 1 / row-items-flow-y-center</div>
+       <div class="col-4">Item 2 / row-items-flow-y-center</div>
+    </div>
+    <div class="col-12 row row-items-flow-y-stretch">
+       <div class="col-4">Item 1 / row-items-flow-y-stretch</div>
+       <div class="col-4">Item 2 / row-items-flow-y-stretch</div>
+    </div>
+  </div>
+  ```
+
+
+  ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/blob/master/example/img/flex-items-column-lines-positions.png "Flex Items Column lines position")
+
+  ```html
+  <div class="row">
+    <div class="col-12 row row-column-lines-y-start">
+        <div class="col-8">Item 1 / row-column-lines-y-start</div>
+        <div class="col-8">Item 2 / row-column-lines-y-start</div>
+    </div>
+    <div class="col-12 row row-column-lines-y-end">
+        <div class="col-8">Item 1 / row-column-lines-y-end</div>
+        <div class="col-8">Item 2 / row-column-lines-y-end</div>
+    </div>
+    <div class="col-12 row row-column-lines-y-center>
+        <div class="col-8">Item 1 / row-column-lines-y-center</div>
+        <div class="col-8">Item 2 / row-column-lines-y-center</div>
+    </div>
+    <div class="col-12 row row-column-lines-y-stretch">
+        <div class="col-8">Item 1 / row-column-lines-y-stretch</div>
+        <div class="col-8">Item 2 / row-column-lines-y-stretch</div>
+    </div>
+    <div class="col-12 row row-column-lines-y-space-betwee">
+        <div class="col-8">Item 1 / row-column-lines-y-space-between</div>
+        <div class="col-8">Item 2 / row-column-lines-y-space-between</div>
+    </div>
+    <div class="col-12 row row-column-lines-y-space-around">
+        <div class="col-8">Item 1 / row-column-lines-y-space-around</div>
+        <div class="col-8">Item 2 / row-column-lines-y-space-around</div>
+    </div>
+  </div>
+  ```
+
+
+  ![alt text](https://github.com/tobiasvitt/css3-flexbox-grid/blob/master/example/img/flex-items-self-alignment.png "Flex Items Self Alignment")
+
+  ```HTML
+  <div class="row">
+    <div class="col-12 row">
+        <div class="col-3 col-self-flow-y-start">Item 1 / col-self-flow-y-start</div>
+        <div class="col-3 col-self-flow-y-end">Item 2 / col-self-flow-y-end</div>
+        <div class="col-3 col-self-flow-y-center">Item 1 / col-self-flow-y-center</div>
+        <div class="col-3 col-self-flow-y-stretch">Item 2 / col-self-flow-y-stretch</div>
+    </div>
+  </div>
+  ```
+
+  * Copy the code and color those Items to see it working
+
+  * [HTML VERSION](https://github.com/tobiasvitt/css3-flexbox-grid)
+
+
+##Documentation:
 
   **Media Queries:**
      
@@ -110,7 +210,9 @@ The grid system uses similar syntax than bootstrap to make it easy to switch.
     - Android Browser 4.3+
 
 
-   **Configure SCSS Version:**
+##Customize the grid system
+
+   **Configure SCSS:**
    
     1. Constants:
    
